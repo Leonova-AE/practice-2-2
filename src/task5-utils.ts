@@ -54,7 +54,7 @@ export function sortBooks(books: Book[], sortType: "year" | "rating"): Book[] {
 // ------------------------------------------------------------
 // Просто соедините то, что уже написано выше и в Задании 3:
 //   1. Примените applyFilters к books с единственным фильтром filterByTitle(query)
-//   2. Результат отсортируйте через sortBooks(..., sortType)
+//   2. Результат отсортируйте через sortBooks(..., sortType) что-то с чем то
 // Именно эту функцию проверяют тесты в tests/task5-utils.test.ts
 export function filterAndSortBooks(
   books: Book[],
