@@ -48,7 +48,7 @@ function renderBooks(books: Book[]) {
 
   books.forEach(book => {
     const card = document.createElement('div');
-    card.className = 'book-card';
+    card.classList.add('book-card', 'fade-in'); // Задание 3: плавное появление
 
     const titleEl = document.createElement('h3');
     titleEl.textContent = formatBook(book);
@@ -75,9 +75,15 @@ function renderBooks(books: Book[]) {
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Удалить';
     deleteBtn.addEventListener('click', () => {
-      catalog = removeBook(catalog, book.id);
-      saveCatalog();
-      updateList(); // было: renderBooks(Object.values(catalog))
+      // Задание 3: сначала карточка плавно гаснет (класс removing, см. styles.css),
+      // и только через 300 мс книга реально удаляется и список перерисовывается.
+      deleteBtn.disabled = true;
+      card.classList.add('removing');
+      setTimeout(() => {
+        catalog = removeBook(catalog, book.id);
+        saveCatalog();
+        updateList(); // было: renderBooks(Object.values(catalog))
+      }, 300);
     });
     card.append(deleteBtn);
     bookList.append(card);
