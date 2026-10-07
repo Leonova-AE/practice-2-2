@@ -67,3 +67,13 @@ button:hover { background: #1d4ed8; }
 .fade-in {
   animation: fadeIn 0.4s ease-out;
 }
+
+/* Задание 3: плавное исчезновение при удалении */
+.book-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.book-card.removing {
+  opacity: 0;
+  transform: scale(0.95);
+}
